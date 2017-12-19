@@ -1,7 +1,7 @@
 plugin_LTLIBRARIES = libgstcamstream.la
 
 # sources used to compile this plug-in
-libgstcamstream_la_SOURCES = gstcamstreamplugin.c gstcamstream.c gstcamstream.h
+libgstcamstream_la_SOURCES = gstcamstream.c gstcamstream.h
 
 # compiler and linker flags used to compile this plugin, set in configure.ac
 libgstcamstream_la_CFLAGS = $(GST_CFLAGS)
