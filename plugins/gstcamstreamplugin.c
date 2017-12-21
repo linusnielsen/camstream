@@ -51,6 +51,9 @@
 static gboolean
 plugin_init (GstPlugin * plugin)
 {
+  GST_DEBUG_CATEGORY_INIT (GST_CAT_DEFAULT, "camstream", 0,
+      "ARP external camera");
+
   gst_element_register (plugin, "camstream", GST_RANK_NONE, GST_TYPE_CAMSTREAM);
 
   return TRUE;

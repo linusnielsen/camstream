@@ -132,7 +132,9 @@ am__installdirs = "$(DESTDIR)$(plugindir)"
 LTLIBRARIES = $(plugin_LTLIBRARIES)
 am__DEPENDENCIES_1 =
 libgstcamstream_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
-am_libgstcamstream_la_OBJECTS = libgstcamstream_la-gstcamstream.lo
+am_libgstcamstream_la_OBJECTS =  \
+	libgstcamstream_la-gstcamstreamplugin.lo \
+	libgstcamstream_la-gstcamstream.lo
 libgstcamstream_la_OBJECTS = $(am_libgstcamstream_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -332,7 +334,7 @@ top_srcdir = @top_srcdir@
 plugin_LTLIBRARIES = libgstcamstream.la
 
 # sources used to compile this plug-in
-libgstcamstream_la_SOURCES = gstcamstream.c gstcamstream.h
+libgstcamstream_la_SOURCES = gstcamstreamplugin.c gstcamstream.c gstcamstream.h
 
 # compiler and linker flags used to compile this plugin, set in configure.ac
 libgstcamstream_la_CFLAGS = $(GST_CFLAGS)
@@ -417,6 +419,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgstcamstream_la-gstcamstream.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgstcamstream_la-gstcamstreamplugin.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -438,6 +441,13 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LTCOMPILE) -c -o $@ $<
+
+libgstcamstream_la-gstcamstreamplugin.lo: gstcamstreamplugin.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgstcamstream_la_CFLAGS) $(CFLAGS) -MT libgstcamstream_la-gstcamstreamplugin.lo -MD -MP -MF $(DEPDIR)/libgstcamstream_la-gstcamstreamplugin.Tpo -c -o libgstcamstream_la-gstcamstreamplugin.lo `test -f 'gstcamstreamplugin.c' || echo '$(srcdir)/'`gstcamstreamplugin.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libgstcamstream_la-gstcamstreamplugin.Tpo $(DEPDIR)/libgstcamstream_la-gstcamstreamplugin.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='gstcamstreamplugin.c' object='libgstcamstream_la-gstcamstreamplugin.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgstcamstream_la_CFLAGS) $(CFLAGS) -c -o libgstcamstream_la-gstcamstreamplugin.lo `test -f 'gstcamstreamplugin.c' || echo '$(srcdir)/'`gstcamstreamplugin.c
 
 libgstcamstream_la-gstcamstream.lo: gstcamstream.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgstcamstream_la_CFLAGS) $(CFLAGS) -MT libgstcamstream_la-gstcamstream.lo -MD -MP -MF $(DEPDIR)/libgstcamstream_la-gstcamstream.Tpo -c -o libgstcamstream_la-gstcamstream.lo `test -f 'gstcamstream.c' || echo '$(srcdir)/'`gstcamstream.c

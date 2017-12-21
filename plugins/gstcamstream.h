@@ -20,7 +20,7 @@
 #ifndef _GST_CAMSTREAM_H_
 #define _GST_CAMSTREAM_H_
 
-#include <gst/base/gstbasesrc.h>
+#include <gst/base/gstpushsrc.h>
 
 G_BEGIN_DECLS
 
@@ -35,13 +35,16 @@ typedef struct _GstCamstreamClass GstCamstreamClass;
 
 struct _GstCamstream
 {
-  GstBaseSrc base_camstream;
+  GstPushSrc base_camstream;
 
+  gint bufsize;
+  gint64 n_frames;                      /* total frames sent */
 };
 
 struct _GstCamstreamClass
 {
-  GstBaseSrcClass base_camstream_class;
+  GstPushSrcClass parent_class;
+
 };
 
 GType gst_camstream_get_type (void);
